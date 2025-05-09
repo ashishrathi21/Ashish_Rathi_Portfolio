@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaLinkedinIn, FaGithub, FaBehance } from "react-icons/fa";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +23,28 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    
+    const { name, email, subject, message } = formData;
+    
+    // Send email using EmailJS
+    emailjs
+      .send(
+        "your_service_id", // Your service ID from EmailJS
+        "your_template_id", // Your template ID from EmailJS
+        { name, email, subject, message },
+        "your_user_id" // Your user ID from EmailJS
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setStatusMessage("Message sent successfully!");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        },
+        (error) => {
+          console.log("FAILED...", error);
+          setStatusMessage("Something went wrong. Please try again.");
+        }
+      );
   };
 
   return (
@@ -171,6 +194,12 @@ const Contact = () => {
             >
               Send Message
             </button>
+
+            {statusMessage && (
+              <div className="mt-4 text-center text-white font-semibold">
+                {statusMessage}
+              </div>
+            )}
           </form>
         </motion.div>
       </div>
