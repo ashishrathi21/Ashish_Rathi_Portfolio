@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#001327] z-50 ">
+    <nav className="fixed top-0 left-0 right-0 bg-[#001327] z-50 w-full overflow-x-hidden">
       <motion.div
         className="w-full max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 md:h-20 h-16"
         initial={{ y: -60 }}
@@ -44,17 +44,19 @@ const Navbar = () => {
           <div className="text-2xl font-bold text-purple-500">{"</>"}</div>
         </motion.div>
 
+        {/* Mobile Hamburger Menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2"
         >
           {isMenuOpen ? (
-            <HiX className="size-6 text-purple-500" />
+            <HiX className="text-3xl text-purple-500" />
           ) : (
-            <HiMenu className="size-6 text-purple-500" />
+            <HiMenu className="text-3xl text-purple-500" />
           )}
         </button>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link, index) => (
             <motion.a
@@ -74,17 +76,19 @@ const Navbar = () => {
           ))}
         </div>
 
+        {/* Resume Button */}
         <motion.a
           href={Resume}
           target="_blank"
           whileTap={{ scale: 0.95 }}
           className="hidden md:flex items-center gap-2 bg-purple-500 text-white px-6 py-2.5 rounded-xl text-sm font-medium transition-all hover:bg-purple-600"
         >
-          <FiDownload className="size-5" />
+          <FiDownload className="text-lg" />
           Resume
         </motion.a>
       </motion.div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -112,13 +116,14 @@ const Navbar = () => {
                 </motion.a>
               ))}
 
+              {/* Resume Button for Mobile */}
               <motion.a
                 href={Resume}
                 target="_blank"
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-2 bg-purple-500 text-white px-6 py-2.5 rounded-lg hover:bg-purple-600 text-sm font-medium w-1/2"
               >
-                <FiDownload className="size-5" />
+                <FiDownload className="text-lg" />
                 Resume
               </motion.a>
             </div>
