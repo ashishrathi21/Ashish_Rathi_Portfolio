@@ -15,24 +15,20 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const { name, email, subject, message } = formData;
-    
-    // Send email using EmailJS
+
     emailjs
       .send(
-        "your_service_id", // Your service ID from EmailJS
-        "your_template_id", // Your template ID from EmailJS
+        "service_h051qom",     // ✅ Replace with your EmailJS Service ID
+        "template_y34nffc",    // ✅ Replace with your EmailJS Template ID
         { name, email, subject, message },
-        "your_user_id" // Your user ID from EmailJS
+        "hLSumEXvnDh2Q3Avq"    // ✅ Replace with your EmailJS Public Key
       )
       .then(
         (response) => {
@@ -41,7 +37,7 @@ const Contact = () => {
           setFormData({ name: "", email: "", subject: "", message: "" });
         },
         (error) => {
-          console.log("FAILED...", error);
+          console.error("FAILED...", error);
           setStatusMessage("Something went wrong. Please try again.");
         }
       );
@@ -56,7 +52,6 @@ const Contact = () => {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      {/* Top Centered Heading */}
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: -30 }}
@@ -68,11 +63,11 @@ const Contact = () => {
           Let’s Connect!
         </h2>
         <p className="text-md sm:text-lg font-semibold text-gray-400">
-          I'm open to new opportunities, meaningful collaborations,<br /> or simply a friendly conversation—let’s connect.
+          I'm open to new opportunities, meaningful collaborations,
+          <br /> or simply a friendly conversation—let’s connect.
         </p>
       </motion.div>
 
-      {/* Flex container */}
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Contact Info */}
         <motion.div
@@ -91,7 +86,6 @@ const Contact = () => {
                 +91 86008 81740
               </a>
             </div>
-
             <div>
               <span className="text-lg font-semibold">Email:</span>{" "}
               <a href="mailto:rathiashihs@gmail.com" className="text-purple-400 hover:text-purple-600">
@@ -128,63 +122,59 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Name */}
             <div className="flex flex-col text-start">
-              <label htmlFor="name" className="text-white font-semibold mb-1">
-                Name
-              </label>
+              <label htmlFor="name" className="text-white font-semibold mb-1">Name</label>
               <input
                 type="text"
-                id="name"
                 name="name"
+                id="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required
+                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
 
+            {/* Email */}
             <div className="flex flex-col text-start">
-              <label htmlFor="email" className="text-white font-semibold mb-1">
-                Email
-              </label>
+              <label htmlFor="email" className="text-white font-semibold mb-1">Email</label>
               <input
                 type="email"
-                id="email"
                 name="email"
+                id="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required
+                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
 
+            {/* Subject */}
             <div className="flex flex-col text-start">
-              <label htmlFor="subject" className="text-white font-semibold mb-1">
-                Subject
-              </label>
+              <label htmlFor="subject" className="text-white font-semibold mb-1">Subject</label>
               <input
                 type="text"
-                id="subject"
                 name="subject"
+                id="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required
+                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
 
+            {/* Message */}
             <div className="flex flex-col text-start">
-              <label htmlFor="message" className="text-white font-semibold mb-1">
-                Message
-              </label>
+              <label htmlFor="message" className="text-white font-semibold mb-1">Message</label>
               <textarea
-                id="message"
                 name="message"
+                id="message"
+                rows="4"
                 value={formData.message}
                 onChange={handleChange}
-                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                rows="4"
                 required
+                className="p-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
               ></textarea>
             </div>
 
@@ -196,9 +186,7 @@ const Contact = () => {
             </button>
 
             {statusMessage && (
-              <div className="mt-4 text-center text-white font-semibold">
-                {statusMessage}
-              </div>
+              <p className="mt-4 text-center text-white font-semibold">{statusMessage}</p>
             )}
           </form>
         </motion.div>

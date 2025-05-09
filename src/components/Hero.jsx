@@ -10,13 +10,13 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="max-w-screen-xl mx-auto flex flex-col items-center justify-center text-center pt-28 pb-16 px-4 sm:px-6 lg:px-8"
+      className="max-w-screen-xl mx-auto flex flex-col items-center justify-center text-center pt-24 pb-16 px-6 sm:px-8 md:px-12 lg:px-16"
     >
       {/* Image */}
       <motion.img
         src={Ashish}
         alt="Ashish Rathi"
-        className="w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 object-cover rounded-full cursor-pointer shadow-purple-500 shadow-sm border-2 border-purple-500 mb-8"
+        className="w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 object-cover rounded-full cursor-pointer shadow-purple-500 shadow-sm border-2 border-purple-500 mb-8"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -24,7 +24,7 @@ const Hero = () => {
 
       {/* Heading */}
       <motion.h2
-        className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white mb-4"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
@@ -37,7 +37,7 @@ const Hero = () => {
 
       {/* Paragraph */}
       <motion.p
-        className="text-base sm:text-lg text-gray-300 mb-8 px-2"
+        className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 px-2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}

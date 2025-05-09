@@ -15,15 +15,27 @@ const Navbar = () => {
     { href: "#achievements", label: "Achievements" },
   ];
 
+  const handleLinkClick = (href) => {
+    setActiveLink(href);
+    setIsMenuOpen(false);
+
+    // Manually scroll to section
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#001327] z-50 shadow-md">
+    <nav className="fixed top-0 left-0 right-0 bg-[#001327] z-50 ">
       <motion.div
         className="w-full max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 md:h-20 h-16"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 80, damping: 14 }}
       >
-        {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.1 }}
           className="flex items-center gap-1 cursor-pointer"
@@ -32,7 +44,6 @@ const Navbar = () => {
           <div className="text-2xl font-bold text-purple-500">{"</>"}</div>
         </motion.div>
 
-        {/* Mobile toggle button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2"
@@ -44,13 +55,12 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link, index) => (
             <motion.a
               key={index}
               href={link.href}
-              onClick={() => setActiveLink(link.href)}
+              onClick={() => handleLinkClick(link.href)}
               className={`text-md font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-purple-400 after:-mb-1 after:transition-all ${
                 activeLink === link.href
                   ? "text-purple-400 after:w-full"
@@ -64,7 +74,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Resume download (desktop) */}
         <motion.a
           href={Resume}
           target="_blank"
@@ -76,7 +85,6 @@ const Navbar = () => {
         </motion.a>
       </motion.div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -90,10 +98,7 @@ const Navbar = () => {
               {navLinks.map((link, index) => (
                 <motion.a
                   key={index}
-                  onClick={() => {
-                    setActiveLink(link.href);
-                    setIsMenuOpen(false);
-                  }}
+                  onClick={() => handleLinkClick(link.href)}
                   className={`block text-sm font-medium py-2 ${
                     activeLink === link.href
                       ? "text-purple-400"
