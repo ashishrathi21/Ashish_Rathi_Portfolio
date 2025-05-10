@@ -125,7 +125,7 @@ const ProjectCard = ({ img, title, description, tech, demoLink, githubLink }) =>
 
 // Reusable UI/UX Design Project Card Component
 const DesignCard = ({ img, title, description, tools, viewLink }) => (
-  <div className="bg-gray-900 rounded-lg p-6 max-w-xs flex flex-col justify-between h-[520px]">
+  <div className="bg-gray-900 rounded-lg p-6 max-w-xs flex flex-col justify-between h-[620px]">
     <div>
       <img src={img} alt={title} className="w-full h-[180px] object-cover rounded-lg mb-4" />
       <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 text-start">{title}</h3>

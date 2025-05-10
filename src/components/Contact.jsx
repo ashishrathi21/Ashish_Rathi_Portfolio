@@ -20,15 +20,16 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    alert("Form Submitted Successfully !")
 
     const { name, email, subject, message } = formData;
 
     emailjs
       .send(
-        "service_h051qom",     // ✅ Replace with your EmailJS Service ID
-        "template_y34nffc",    // ✅ Replace with your EmailJS Template ID
+        "service_l1oqpt3",     // ✅ Replace with your EmailJS Service ID
+        "template_jsivvc5",    // ✅ Replace with your EmailJS Template ID
         { name, email, subject, message },
-        "hLSumEXvnDh2Q3Avq"    // ✅ Replace with your EmailJS Public Key
+        "7NoswYLH5pj0xFP_0"    // ✅ Replace with your EmailJS Public Key
       )
       .then(
         (response) => {
