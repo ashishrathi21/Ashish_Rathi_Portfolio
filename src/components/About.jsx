@@ -35,7 +35,7 @@ const About = () => {
           viewport={{ once: true }}
         >
           {/* Background circle */}
-          <div className="w-full h-full rounded-full absolute top-0 left-0 -z-10 bg-gradient-to-r from-purple-400 to-purple-700"></div>
+          <div className="w-full h-full rounded-full absolute top-0 left-0 -z-10 "></div>
 
           {/* Icon */}
           <div className="absolute bottom-5 right-2.5 transform translate-x-1/3 translate-y-1/3 z-10 bg-white p-2 sm:p-3 rounded-full border-2 border-white shadow-lg">
