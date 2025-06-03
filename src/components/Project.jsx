@@ -5,6 +5,7 @@ import Project_2 from "../assets/project_2.png";
 import Project_3 from "../assets/project_3.png";
 import Design_1 from '../assets/elearning.png';
 import Design_2 from '../assets/medical.png';
+import Design_3 from '../assets/travel.png';
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 const fadeInUp = {
@@ -94,6 +95,16 @@ const Project = () => {
             description="A clean and user-centric medical app interface focused on easy navigation, quick access to health records, and a smooth patient experience."
             tools="Figma, Canva"
             viewLink="https://www.behance.net/gallery/223018929/CUROSYNC-Medical-Health-App"
+          />
+        </motion.div>
+
+          <motion.div {...fadeInUp}>
+          <DesignCard
+            img={Design_3}
+            title="Travel : Find Your Dream Destination With Us (App Design)"
+            description="A modern travel app design to discover, explore, and book your dream destinations with ease."
+            tools="Figma, Canva"
+            viewLink="https://www.behance.net/gallery/227375097/Travel-Find-Your-Dream-Destination-With-Us"
           />
         </motion.div>
       </div>
