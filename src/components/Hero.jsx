@@ -2,15 +2,25 @@ import React from "react";
 import Ashish from "../assets/favicon.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaChevronDown } from "react-icons/fa";
-import { FaLinkedinIn, FaGithub, FaBehance } from "react-icons/fa";
-import { FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { FaHtml5 } from "react-icons/fa";
+import { FaSquareJs, FaReact } from "react-icons/fa6";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { CgFigma } from "react-icons/cg";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+
+  const handleScrollToBottom = () => {
+    const section = document.getElementById('skills');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+   };
+
   return (
     <section
       id="home"
-      className="max-w-screen-xl mx-auto flex flex-col items-center justify-center text-center pt-24 pb-16 px-6 sm:px-8 md:px-12 lg:px-16"
+      className="max-w-screen-xl mx-auto flex flex-col items-center justify-center text-center pt-20 pb-16 px-6 sm:px-8 md:px-12 lg:px-16"
     >
       {/* Image */}
       <motion.img
@@ -42,76 +52,69 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
       >
-        Passionate Frontend Developer | UI/UX Enthusiast | Lifelong Learner
+        Passionate Frontend Developer | UI/UX Enthusiast 
       </motion.p>
 
-      {/* Buttons */}
-      <motion.div
-        className="flex flex-col sm:flex-row items-center gap-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-      >
-        <a
-          href="#projects"
-          className="flex gap-2 items-center justify-center bg-purple-500 text-white px-6 py-2.5 rounded-xl hover:bg-purple-600 text-sm font-medium transition-all"
-        >
-          View My Work <FaArrowRightLong className="mt-1 size-4" />
-        </a>
+{/* Social Icons */}
+<motion.div
+  className="flex justify-center "
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.8 }}
+>
+  <div className="flex flex-wrap justify-center gap-6 "
+  >
+    <a
+      className="text-orange-600 hover:text-orange-700 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:scale-110"
+    >
+      <FaHtml5 className="text-2xl sm:text-3xl md:text-4xl" />
+    </a>
+    <a
+      className="text-yellow-400 hover:text-yellow-500 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:scale-110"
+    >
+      <FaSquareJs className="text-2xl sm:text-3xl md:text-4xl" />
+    </a>
+    <a
+      className="text-blue-400 hover:text-blue-500 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:scale-110"
+    >
+      <FaReact className="text-2xl sm:text-3xl md:text-4xl" />
+    </a>
+    <a
+      className="text-cyan-400 hover:text-cyan-500 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:scale-110"
+    >
+      <RiTailwindCssFill className="text-2xl sm:text-3xl md:text-4xl" />
+    </a>
+    <a
+      className="text-purple-500 hover:text-purple-600 transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:scale-110"
+    >
+      <CgFigma className="text-2xl sm:text-3xl md:text-4xl" />
+    </a>
+  </div>
+</motion.div>
 
-        <a
-          href="#connect"
-          className="flex gap-2 items-center justify-center border-2 border-purple-500 text-white px-6 py-2.5 rounded-xl hover:border-purple-800 text-sm font-medium transition-all"
-        >
-          Connect With Me <FaArrowRightLong className="mt-1 size-4" />
-        </a>
-      </motion.div>
+{/* Buttons */}
+<motion.div
+  className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 px-6 sm:px-0"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+>
+  <a
+    href="#projects"
+    className="flex gap-2 items-center justify-center bg-purple-500 text-white px-6 py-2.5 rounded-xl hover:bg-purple-600 text-sm font-medium transition-all"
+  >
+    View My Work <FaArrowRightLong className="mt-1 text-lg" />
+  </a>
 
-      {/* Social Icons */}
-      <motion.div
-        className="flex gap-5 items-center justify-center text-white mt-7"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-      >
-        <div className="flex gap-6 text-2xl mt-4">
-          <a
-            href="https://www.linkedin.com/in/ashish-rathi-a52749298/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedinIn className="text-purple-400 hover:text-purple-600" />
-          </a>
-          <a
-            href="https://github.com/ashishrathi21"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className="text-purple-400 hover:text-purple-600" />
-          </a>
-          <a
-            href="https://www.behance.net/ashishrathi2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaBehance className="text-purple-400 hover:text-purple-600" />
-          </a>
-          <a
-            href="https://www.instagram.com/ashish__rathi21/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram className="text-purple-400 hover:text-purple-600" />
-          </a>
-          <a
-            href="https://x.com/Ashish_Rathi_21"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaXTwitter className="text-purple-400 hover:text-purple-600" />
-          </a>
-        </div>
-      </motion.div>
+  <a
+    href="#contact"
+    className="flex gap-2 items-center justify-center border-2 border-purple-500 text-white px-6 py-2.5 rounded-xl hover:border-purple-800 text-sm font-medium transition-all"
+  >
+    Connect With Me <FaArrowRightLong className="mt-1 text-lg" />
+  </a>
+</motion.div>
+
+      
 
       {/* Scroll Down Icon */}
       <motion.div
@@ -119,7 +122,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
-        <FaChevronDown className="size-7 text-purple-500 mt-10 cursor-pointer" />
+        <FaChevronDown onClick={handleScrollToBottom} className="size-7 text-purple-500 mt-10 cursor-pointer animate-bounce" />
       </motion.div>
     </section>
   );
