@@ -90,7 +90,7 @@ const Contact = () => {
             <div>
               <span className="text-lg font-semibold">Email:</span>{" "}
               <a href="mailto:rathiashihs@gmail.com" className="text-purple-400 hover:text-purple-600">
-                rathiashihs@gmail.com
+                rathiashish4321@gmail.com
               </a>
             </div>
           </div>
